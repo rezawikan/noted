@@ -43,6 +43,7 @@ Staged changes are reffering to files changes which haven't merged and were part
 - `git clean -dn` : allows you to check all entires untracked changes.
 - `git reset --soft HEAD^` : allows you back to previous commit without deleteing all changes in current state.
 - `git reset --hard HEAD^` : allows you back to previous commit with deleteing all changes in current state.
+- `git branch branchname [-d/-D]` : allows you delete your branch. `-d` used for normal delete (it will check that the branch has been merged or not), while `-D` used for force deletion.
 
 #### Special for Unstaged Changes
 
@@ -58,3 +59,21 @@ Staged changes are reffering to files changes which haven't merged and were part
 
 - `git switch yourbranchname` : allows you to switch in other branch.
 - `git switch -c test` : allows you to create a new branch named `test` and move to your new branch from you current working directory.
+
+#### Gitignore
+- `*.log` : allows you to ignore files which have .log formatted.
+- `!test.log` : allows you to include file which has test.log formatted. (We cused this because of `*.log` formatted).
+- `web/*` : allows you to ignore files in web folder.
+
+#### Special Cases
+##### Committing "detached HEAD" Changes.
+- start from master branch
+- `git checkout 53bad1ff5d527207613a8b05b24965c8b53c899a` (go to detached head).
+- make a changes then staged the changes and commit it with message.
+- back to master branch.
+- You can't find any changes on that prev branch.
+- You can create a new branch, `git branch detached-head 037e3f3`.  037e3f3 is ID, you can find it when go back to master branch. Do this from master branch.
+- The last, merge detached-head branch to master.
+- Do not forget to delete branch.
+
+noted : you can do another alternative. After commit, you can directly create a branch then go back to master branch and merge it.fol
