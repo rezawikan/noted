@@ -60,6 +60,18 @@ Staged changes are reffering to files changes which haven't merged and were part
 - `git switch yourbranchname` : allows you to switch in other branch.
 - `git switch -c test` : allows you to create a new branch named `test` and move to your new branch from you current working directory.
 
+#### Stash
+- `git stash` : allows you to add a stash.
+- `git stash push -m "add message"` : allows you to add a stash with label.
+- `git stash apply` : allows you to apply the last stash to your working directory without deleting the last stash.
+- `git stash apply 0` : allows you to apply the specific index stash to your working directory without deleting the stash.
+- `git stash pop` : allows you to apply the last stash to your working directory with deleting the last stash.
+- `git stash pop 0` : allows you to apply the specific index stash to your working directory with deleting the stash.
+- `git stash list` : allows you to check all available stash.
+- `git stash drop 0` : allows you to remove the specific stash based on index.
+- `git stash clear`: allows you to remove all stash.
+
+
 #### Gitignore
 - `*.log` : allows you to ignore files which have .log formatted.
 - `!test.log` : allows you to include file which has test.log formatted. (We cused this because of `*.log` formatted).
