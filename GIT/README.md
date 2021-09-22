@@ -40,20 +40,20 @@ Staged changes are reffering to files changes which haven't merged and were part
 - `git branch -d bugs` : allows you to delete `bugs's` branch.
 - `git branch -v` : allows you to check the last previous commit.
 - `git log` : allows you to check list of previous commits.
-- `git clean -dn` : allows you to check all entires untracked changes.
 - `git reset --soft HEAD^` : allows you back to previous commit without deleteing all changes in current state.
 - `git reset --hard HEAD^` : allows you back to previous commit with deleteing all changes in current state.
 - `git branch branchname [-d/-D]` : allows you delete your branch. `-d` used for normal delete (it will check that the branch has been merged or not), while `-D` used for force deletion.
 
 #### Special for Unstaged Changes
 
-- `git restore .` : allows you to discard all changes to your last commit changes.
-- `git restore file.txt` : allows you to discard changes on file.txt.
+- `git restore .` : allows you to delete all changes to your last commit changes.
+- `git restore file.txt` : allows you to delete changes on file.txt.
+- `git clean -df`: allows you to delete untracked files.
 
 #### Special for Staged Changes
 
-- `git reset .` : allows you to remove all changes from the staged changes to unstaged changes.
-- `git reset file.txt` : allows you to remove a specific change from the staged changes to unstaged changes.
+- `git reset .` : allows you to remove all changes from the staging area to unstaged changes.
+- `git reset file.txt` : allows you to remove a specific change from the staging area to unstaged changes.
 
 #### New Features for 2.23 versions
 
@@ -65,8 +65,8 @@ Staged changes are reffering to files changes which haven't merged and were part
 - `!test.log` : allows you to include file which has test.log formatted. (We cused this because of `*.log` formatted).
 - `web/*` : allows you to ignore files in web folder.
 
-#### Special Cases
-##### Committing "detached HEAD" Changes.
+*** 
+#### Committing "detached HEAD" Changes.
 - start from master branch
 - `git checkout 53bad1ff5d527207613a8b05b24965c8b53c899a` (go to detached head).
 - make a changes then staged the changes and commit it with message.
@@ -76,4 +76,4 @@ Staged changes are reffering to files changes which haven't merged and were part
 - The last, merge detached-head branch to master.
 - Do not forget to delete branch.
 
-noted : you can do another alternative. After commit, you can directly create a branch then go back to master branch and merge it.fol
+noted : you can do another alternative. After commit, you can directly create a branch then go back to master branch and merge it.
