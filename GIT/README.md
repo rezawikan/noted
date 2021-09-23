@@ -35,7 +35,6 @@ Staged changes are reffering to files changes which haven't merged and were part
 - `git checkout -- app/Http/routes.php` : allows you to remove a specific changes on from your current working directory.
 - `git checkout master` : allows you to coming back to `master` branch. You can change to another branch that will used as active working directory.
 - `git checkout 53bad1ff5d527207613a8b05b24965c8b53c899a` : allows you to coming back to another branch with specific commit id from `git log`.
-- `git merge bugs` : allows you to merge `bugs's` branch. Noted: your active working directory is master branch.
 - `git branch yourbranchname` : allows you to create a new branch without move to your new branch.
 - `git branch -d bugs` : allows you to delete `bugs's` branch.
 - `git branch -v` : allows you to check the last previous commit.
@@ -55,9 +54,9 @@ Staged changes are reffering to files changes which haven't merged and were part
 - `git reset .` : allows you to remove all changes from the staging area to unstaged changes.
 - `git reset file.txt` : allows you to remove a specific change from the staging area to unstaged changes.
 
-#### New Features for 2.23 versions
+#### Switch (Version 2.23)
 
-- `git switch yourbranchname` : allows you to switch in other branch.
+- `git switch test` : allows you to switch in other branch.
 - `git switch -c test` : allows you to create a new branch named `test` and move to your new branch from you current working directory.
 
 #### Stash
@@ -71,6 +70,15 @@ Staged changes are reffering to files changes which haven't merged and were part
 - `git stash drop 0` : allows you to remove the specific stash based on index.
 - `git stash clear`: allows you to remove all stash.
 
+#### Fast-Forward Merge
+- `git merge bugs` : allows you to merge `bugs's` branch. Noted: your active working directory is master branch.
+- `git merge --squash feature` : allows you to take all changes from feature branch, all changes will be untracking files
+
+#### Non-Fast-Forward Merge
+- `git merge no-ff bugs` : allows you to merge `bugs` branch into the master branch. It will put all information from previous commit from bugs branch as `shadow info`. Actually, it add an additional commit into master branch. You only can reset to `HEAD~1`.
+
+#### Rebase
+- `git rebase master` : allows you to get some updates from your master branch. In case, your master branch has some updates while you are working on different branch. It will create a new commit history for every change. Be careful do it on production.
 
 #### Gitignore
 - `*.log` : allows you to ignore files which have .log formatted.
