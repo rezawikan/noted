@@ -5,7 +5,6 @@
 RxJS is a library for reactive programming using Observables, to make it easier to compose asynchronous or callback-based code. This project is a rewrite of Reactive-Extensions/RxJS with better performance, better modularity, better debuggable call stacks, while staying mostly backwards compatible, with some breaking changes that reduce the API surface
 
 #### Simple Example
-
  ``` 
 // begin lesson code
 import { Observable } from 'rxjs';
@@ -47,7 +46,6 @@ observable.subscribe(observer);
   ```
 
 #### How to implement in Angular?
-
 ```
 numbers$: Observable<number>;
 
@@ -61,6 +59,8 @@ numbers$.pipe(
 - `reduce` : same with javascript operators, allows you to calculate the value and only emit one value.
 - `map` : allows you to restructuring the data.
 - `pluck` : allows you to pick the a value based on key.
+- `tap` : allows you to debug the value using `console.log`.
+- `finalize`: allows you to debug the last value of observable.
 - `takeUntil` : allows you to emit the value until the condition is false.
 - `takeWhile` : allows you to emit the value while the condition is true.
 - `distinctUntilChanged` : allows you to make sure the current value is change and different from the previous value.
@@ -71,6 +71,18 @@ numbers$.pipe(
 - `trottleTime`: allows you to prevent this from spam, it will return the first value after a specific time has passed.
 - `sampleTime`: allows you to set a timer in any condition. It's always running.
 - `auditTime`: allows you to set a timer in any condition. It's always running.
+
+#### Transformation Operators
+- `mergeMap` : allows you to mapping the previous value then run the next multiple observables at the same time. (load pupose)
+- `switchMap` : allows you to mapping the previous value then run the next multiple observables. but the previous obsevable will be completed/cancelled then you only run one observable from start. (searching purpose)
+- `concatMap` : it's similar `switchMap` operator. It wil maintain one active observable and the next observable when the previous execution has been completed. It will be useful when order of the execution is important.
+- `exhaustMap` : allows you to ignore upcoming observables when one observable is active. This will be useful to prevent spamming such as login button or refresh button.
+
+#### Combination Operators
+- `startWith` : allows you to append emiting value from starting point.
+- `endWith` : allows you to append emiting value from ending point.
+- `concat`: allows you to combine numbers of observable values, but it's waiting for current observable until completed before starts the next observable.
+- `merge` : allows you to combine numbers of observable values simultaneously.
 
 #### References:
 - [RxJS](https://rxjs.dev/)
